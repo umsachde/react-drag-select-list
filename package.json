@@ -1,0 +1,24 @@
+{
+  "name": "react-drag-select-list",
+  "version": "1.0.0",
+  "description": "react drag select list",
+  "main": "List/List.tsx",
+  "scripts": {
+    "test": "yarn test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/umsachde/react-drag-select-list.git"
+  },
+  "keywords": [
+    "drag",
+    "list",
+    "select"
+  ],
+  "author": "SkipTheDishes <tech@skipthedishes.ca> (https://www.skipthedishes.com)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/umsachde/react-drag-select-list/issues"
+  },
+  "homepage": "https://github.com/umsachde/react-drag-select-list#readme"
+}
