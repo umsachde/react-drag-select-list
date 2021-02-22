@@ -20,8 +20,8 @@ import {
 import { TSelectableItem, TSelectableItemProps } from './Selectable.types';
 import { SelectableGroupContext } from './SelectableGroup.context';
 import { Selectbox, TSetSelectboxState } from './Selectbox';
-import { ListOption } from '../List/List';
-import { ListItemProps } from '../List/ListItem/ListItem';
+import { ListOption } from '../List';
+import { ListItemProps } from '../ListItem/ListItem';
 
 type TSelectItemsOptions = {
   isFromClick?: boolean;

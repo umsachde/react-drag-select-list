@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import { createSelectable } from '../../SelectableGroup';
+import { createSelectable } from '../SelectableGroup';
 import { IndexedListOption } from '../List';
-import { TSelectableItemProps } from '../../SelectableGroup/Selectable.types';
+import { TSelectableItemProps } from '../SelectableGroup/Selectable.types';
 
 export interface ListItemProps {
   item: IndexedListOption;

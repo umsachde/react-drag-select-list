@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 import React, { FC, useEffect, useState } from 'react';
 import styled from 'styled-components';
-import { SelectableGroup } from '../SelectableGroup';
+import { SelectableGroup } from './SelectableGroup';
 import { getAlphaColor } from '../../../assets/styles/theme/styled-components/DefaultTheme';
 import { renderLoadingSpinner } from '../loadingSpinner';
 import Icon, { IconColor, IconSize, IconType } from '../Icon';
@@ -9,7 +9,7 @@ import ListItem, { ListItemProps } from './ListItem/ListItem';
 import {
   TSelectableItem,
   TSelectableItemProps,
-} from '../SelectableGroup/Selectable.types';
+} from './SelectableGroup/Selectable.types';
 
 const ListContainer = styled.div<{ error: boolean; isLoading: boolean }>`
   position: relative;

@@ -1,0 +1,13 @@
+import * as React from 'react';
+
+export interface ReactDragSelectListProps extends React.PropsWithChildren<ReactDragSelectList> {
+    color: string;
+}
+
+declare class ReactDragSelectList extends React.Component<ReactDragSelectListProps, any> {
+}
+
+declare module 'react-drag-select-list' {
+}
+
+export default ReactDragSelectList;

@@ -16,5 +16,12 @@
   "bugs": {
     "url": "https://github.com/umsachde/react-drag-select-list/issues"
   },
-  "homepage": "https://github.com/umsachde/react-drag-select-list#readme"
+  "homepage": "https://github.com/umsachde/react-drag-select-list#readme",
+  "devDependencies": {
+    "@types/react": "^17.0.2",
+    "@types/react-dom": "^17.0.1",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "typescript": "^4.1.5"
+  }
 }
