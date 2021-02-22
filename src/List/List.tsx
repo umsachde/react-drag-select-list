@@ -2,14 +2,13 @@
 import React, { FC, useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { SelectableGroup } from './SelectableGroup';
-import { getAlphaColor } from '../../../assets/styles/theme/styled-components/DefaultTheme';
-import { renderLoadingSpinner } from '../loadingSpinner';
 import Icon, { IconColor, IconSize, IconType } from '../Icon';
 import ListItem, { ListItemProps } from './ListItem/ListItem';
 import {
   TSelectableItem,
   TSelectableItemProps,
 } from './SelectableGroup/Selectable.types';
+import {renderLoadingSpinner} from "./Common/loadingSpinner";
 
 const ListContainer = styled.div<{ error: boolean; isLoading: boolean }>`
   position: relative;
@@ -44,14 +43,13 @@ const ErrorContainer = styled.div`
 `;
 
 const ErrorText = styled.p`
-  color: ${props => props.theme.colors.red};
-  font-size: ${props => props.theme.font.size.s12};
-  font-family: ${props => props.theme.font.family.normal};
+  color: rgb(233, 20, 49);
+  font-size: 12px;
   margin-left: 7px;
 `;
 
 const ListLoadingOverlay = styled.div`
-  background-color: ${props => getAlphaColor(props.theme.colors.white, 0.7)};
+  background-color: rgba(255,255,255,0.7);
   position: absolute;
   top: 0;
   bottom: 0;
