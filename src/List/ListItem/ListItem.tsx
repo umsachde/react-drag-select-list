@@ -1,8 +1,8 @@
-import React from 'react';
-import styled from 'styled-components';
+import React, { CSSProperties } from 'react';
 import { createSelectable } from '../SelectableGroup';
 import { IndexedListOption } from '../List';
 import { TSelectableItemProps } from '../SelectableGroup/Selectable.types';
+import { theme } from '../utils/constants';
 
 export interface ListItemProps {
   item: IndexedListOption;
@@ -10,16 +10,14 @@ export interface ListItemProps {
   rangeSelect: (item: IndexedListOption) => (event: React.MouseEvent) => void;
 }
 
-const StyledListItem = styled.div<{ selected: boolean }>`
-  background-color: ${({ selected, theme }) =>
-    selected ? theme.colors.lightGrey : theme.colors.white};
-  color: ${props => props.theme.colors.darkGrey};
-  font-size: ${props => props.theme.font.size.s14};
-  font-family: ${props => props.theme.font.family.normal};
-  padding: 5px 10px;
-  cursor: pointer;
-  user-select: none;
-`;
+const getItemContainerStyle = (selected: boolean):CSSProperties => ({
+  backgroundColor: selected ? theme.colors.lightGrey : theme.colors.white,
+  color: theme.colors.darkGrey,
+  fontSize: 14,
+  padding: '5px 10px',
+  cursor: 'pointer',
+  userSelect: 'none'
+});
 
 const ListItem = createSelectable<ListItemProps>(
   (props: TSelectableItemProps & ListItemProps) => {
@@ -29,16 +27,18 @@ const ListItem = createSelectable<ListItemProps>(
       rangeSelect(item)(event);
     };
 
+    const itemContainerStyle = getItemContainerStyle(selected);
+
     return (
-      <StyledListItem
+      <div
         ref={selectableRef}
         key={item.key}
         id={item.key}
-        selected={selected}
+        style={itemContainerStyle}
         onClick={handleSelect}
       >
         {item.description}
-      </StyledListItem>
+      </div>
     );
   },
 );

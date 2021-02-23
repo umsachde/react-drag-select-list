@@ -1,8 +1,8 @@
 import * as React from 'react';
-import { render, fireEvent } from '../../../../utils/TestUtils/test-utils';
+import { render, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 import { List, ListOption } from '../List';
-import { Theme } from '../../../../assets/styles/theme/styled-components/DefaultTheme';
+import { theme } from '../utils/constants';
 
 describe('The List Component', () => {
   const mockedItems: ListOption[] = [
@@ -119,8 +119,8 @@ describe('The List Component', () => {
   });
 
   describe('Special event handler', () => {
-    const defaultBackgroundColor = `background-color: ${Theme.colors.white}`;
-    const selectedItemBackgroundColor = `background-color: ${Theme.colors.lightGrey}`;
+    const defaultBackgroundColor = `background-color: ${theme.colors.white}`;
+    const selectedItemBackgroundColor = `background-color: ${theme.colors.lightGrey}`;
 
     it('select all list items when pressing CTRL + A ', () => {
       const { getByText } = render(

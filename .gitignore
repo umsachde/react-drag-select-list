@@ -3,3 +3,6 @@ node_modules/
 
 # Ide
 .idea/
+
+#Lib
+lib/

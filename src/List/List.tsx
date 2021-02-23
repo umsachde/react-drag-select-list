@@ -1,26 +1,15 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 import React, { FC, useEffect, useState } from 'react';
-import styled from 'styled-components';
 import { SelectableGroup } from './SelectableGroup';
-import { getAlphaColor } from '../../../assets/styles/theme/styled-components/DefaultTheme';
-import { renderLoadingSpinner } from '../loadingSpinner';
-import Icon, { IconColor, IconSize, IconType } from '../Icon';
+import Icon, { IconColor, IconSize, IconType } from './Icon/Icon';
 import ListItem, { ListItemProps } from './ListItem/ListItem';
 import {
   TSelectableItem,
   TSelectableItemProps,
 } from './SelectableGroup/Selectable.types';
-
-const ListContainer = styled.div<{ error: boolean; isLoading: boolean }>`
-  position: relative;
-  border: 1px solid
-    ${({ error, theme }) => (error ? theme.colors.red : theme.colors.lightGrey)};
-  background-color: ${props => props.theme.colors.white};
-  max-height: 474px;
-  width: 100%;
-  border-radius: 5px;
-  overflow-y: ${props => (props.isLoading ? 'hidden' : 'scroll')};
-`;
+import { ErrorContainerStyle, ErrorTextStyle, ListLoadingOverlayStyle } from './utils/constants';
+import ListContainer from './hoc/ListContainer';
+import { renderLoadingSpinner } from './LoadingSpinner/LoadingSpinner';
 
 type ListHandlerPropsType = {
   props: TSelectableItemProps & ListItemProps;
@@ -36,29 +25,6 @@ type SelectionActions = {
   itemsToSelect: ListOption[];
   itemsToUnselect: ListOption[];
 };
-
-const ErrorContainer = styled.div`
-  display: flex;
-  padding-top: 3px;
-  align-items: center;
-`;
-
-const ErrorText = styled.p`
-  color: ${props => props.theme.colors.red};
-  font-size: ${props => props.theme.font.size.s12};
-  font-family: ${props => props.theme.font.family.normal};
-  margin-left: 7px;
-`;
-
-const ListLoadingOverlay = styled.div`
-  background-color: ${props => getAlphaColor(props.theme.colors.white, 0.7)};
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-`;
-
 export interface ListOption {
   key: string;
   description: string;
@@ -308,15 +274,15 @@ export const List: FC<ListProps> = ({
       return null;
     }
     return (
-      <ErrorContainer>
+      <div style={ErrorContainerStyle}>
         <Icon
           type={IconType.AlertTriangle}
           width={IconSize.s13}
           height={IconSize.s13}
           color={IconColor.Red}
         />
-        <ErrorText>{error}</ErrorText>
-      </ErrorContainer>
+        <p style={ErrorTextStyle}>{error}</p>
+      </div>
     );
   };
 
@@ -336,7 +302,7 @@ export const List: FC<ListProps> = ({
       onSelectionFinish={handleSelectionFinish}
     >
       <ListContainer
-        className={'list-container'}
+        customClassName={'list-container'}
         error={!!error}
         isLoading={isLoading}
       >
@@ -345,7 +311,7 @@ export const List: FC<ListProps> = ({
         )}
         {isLoading ? (
           <>
-            <ListLoadingOverlay />
+            <div style={ListLoadingOverlayStyle} />
             {renderLoadingSpinner()}
           </>
         ) : null}
