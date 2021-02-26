@@ -1,4 +1,4 @@
-import React, { useState, useEffect, CSSProperties } from 'react';
+import React, {CSSProperties, Component } from 'react';
 
 export type TSetSelectboxState = React.Dispatch<
   React.SetStateAction<TSelectboxState>
@@ -17,36 +17,50 @@ export type TSelectboxState = {
   height: number;
 };
 
-const initialState: TSelectboxState = {
-  y: 0,
-  x: 0,
-  width: 0,
-  height: 0,
-};
+class Selectbox extends Component<TSelectboxProps> {
 
-export function Selectbox(props: TSelectboxProps) {
-  const { fixedPosition, getSetState, className } = props;
-  const [state, setState] = useState(initialState);
+  state:TSelectboxState  = {
+    y: 0,
+    x: 0,
+    width: 0,
+    height: 0,
+  }
 
-  useEffect(() => {
-    getSetState(setState);
-  }, []);
+  constructor(props:TSelectboxProps) {
+    super(props)
+  }
 
-  const boxStyle: CSSProperties = {
-    left: state.x,
-    top: state.y,
-    width: state.width,
-    height: state.height,
+  static defaultProps = {
+    className: 'selectable-selectbox',
+  }
+
+  setSelectBoxState = (updateState: TSelectboxState) => {
+    this.setState({...updateState})
+  }
+
+  componentWillMount() {
+    this.props.getSetState(this.setState);
+  }
+
+  getBoxStyle = ():CSSProperties => {
+    const { fixedPosition } = this.props;
+    const {x, y, width, height} = this.state;
+    return {
+    left: x,
+    top: y,
+    width: width,
+    height: height,
     zIndex: 9000,
     position: fixedPosition ? 'fixed' : 'absolute',
     cursor: 'default',
     willChange: 'transform',
     transform: 'translateZ(0)',
+    }
   };
 
-  return <div className={className} style={boxStyle} />;
+  render () {
+    return <div className={this.props.className} style={this.getBoxStyle()} />;
+  }
 }
 
-Selectbox.defaultProps = {
-  className: 'selectable-selectbox',
-};
+export default Selectbox;

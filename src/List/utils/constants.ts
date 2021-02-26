@@ -1,16 +1,8 @@
 import { CSSProperties } from "react";
 
 const BACKGROUND_ALPHA = 0.1;
-const infoBlue = 'rgb(237, 241, 254)';
-const darkBlue = 'rgb(0, 108, 187)';
-const darkerBlue = 'rgb(0, 59, 102)';
-const green = 'rgb(45, 180, 112)';
-const orange = 'rgb(246, 141, 48)';
-const darkOrange = 'rgb(243, 109, 0)';
 const white = 'rgb(255, 255, 255)';
-const black = 'rgb(23, 32, 38)';
 const red = 'rgb(233, 20, 49)';
-const lightRed = 'rgb(255, 233, 234)';
 const lightGrey = 'rgb(219, 225, 229)';
 const darkGrey = 'rgb(141,148,153)';
 

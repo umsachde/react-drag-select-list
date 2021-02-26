@@ -1,4 +1,4 @@
-import React, { Component, CSSProperties, FC } from "react";
+import React, { Component, CSSProperties } from "react";
 import { theme } from "../utils/constants";
 
 interface IListContainerProps {

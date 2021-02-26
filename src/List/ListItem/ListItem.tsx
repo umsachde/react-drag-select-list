@@ -1,6 +1,6 @@
 import React, { CSSProperties } from 'react';
 import { createSelectable } from '../SelectableGroup';
-import { IndexedListOption } from '../List';
+import { IndexedListOption } from '..';
 import { TSelectableItemProps } from '../SelectableGroup/Selectable.types';
 import { theme } from '../utils/constants';
 

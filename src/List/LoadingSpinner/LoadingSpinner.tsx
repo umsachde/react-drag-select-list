@@ -2,6 +2,7 @@ import React, { CSSProperties } from 'react';
 import Icon, { IconColor, IconSize, IconType } from '../Icon/Icon';
 
 
+/*
 const keyFrames = `@-webkit-keyframes spinner {
     from {
         transform: rotate(0deg);
@@ -10,6 +11,7 @@ const keyFrames = `@-webkit-keyframes spinner {
         transform: rotate(360deg);
     }
 }`;
+*/
 
 const getLoadingSpinerStyle = (absolutePositioning?: boolean):CSSProperties => ({
     display: 'flex',
@@ -28,8 +30,6 @@ const getLoadingSpinerStyle = (absolutePositioning?: boolean):CSSProperties => (
 })
 
 export const renderLoadingSpinner = (absolutePositioning?: boolean) => {
-  const styleSheet = document.styleSheets[0];
-  styleSheet.insertRule(keyFrames, styleSheet.cssRules.length);
   const spinnerStyle = getLoadingSpinerStyle(absolutePositioning);
   return(
   <div style={spinnerStyle}>

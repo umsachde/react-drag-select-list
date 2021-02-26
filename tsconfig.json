@@ -1,19 +1,27 @@
 {
   "compilerOptions": {
+    "allowJs": false,
+    "experimentalDecorators": true,
+    "lib": ["dom", "es2015", "esnext"],
     "outDir": "./lib",
-    "target": "es6",
+    "target": "es5",
     "module": "commonjs",
+    "esModuleInterop": true, 
+    "moduleResolution": "node", 
     "noImplicitAny": true,
+    "noUnusedLocals": true,
     "strictNullChecks": true,
     "removeComments": true,
-    "declaration": false,
+    "declaration": true,
     "sourceMap": true,
     "jsx": "react",
     "typeRoots": [
       "index.d.ts",
       "node_modules/@types"
     ],
-    "allowSyntheticDefaultImports": true
+    "allowSyntheticDefaultImports": true,
+    "downlevelIteration": true,
+    "strict": true,
   },
   "include": [
     "./src/**/*.tsx",

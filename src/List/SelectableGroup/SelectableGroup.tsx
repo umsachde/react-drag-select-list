@@ -19,8 +19,8 @@ import {
 } from './utils';
 import { TSelectableItem, TSelectableItemProps } from './Selectable.types';
 import { SelectableGroupContext } from './SelectableGroup.context';
-import { Selectbox, TSetSelectboxState } from './Selectbox';
-import { ListOption } from '../List';
+import Selectbox, { TSetSelectboxState } from './Selectbox';
+import { ListOption } from '..';
 import { ListItemProps } from '../ListItem/ListItem';
 
 type TSelectItemsOptions = {
