@@ -1,6 +1,6 @@
 {
   "name": "react-drag-select-list",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "React Draggable and select list",
   "main": "lib/List/index.js",
   "scripts": {
